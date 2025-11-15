@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section id="hero" class="hero section">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <div class="col-lg-7" data-aos="fade-up">
+        <h1 class="mb-3" style="font-size: 3.3rem; font-weight: 800;">
+          Sistema de Logística y Transporte
+        </h1>
+
+        <p class="lead mb-4">
+          Gestión integral de operaciones: vehículos, aeronaves, conductores, pilotos, rutas, cargas y despachos.
+        </p>
+
+        <!-- Frase para rellenar el espacio -->
+        <p class="text-secondary" style="font-size: 1.05rem;">
+          Plataforma diseñada para apoyar la gestión moderna y eficiente del transporte nacional.
+        </p>
+      </div>
+
+      <div class="col-lg-5" data-aos="zoom-out">
+        <img src="{% static 'img/abstract/abstract-1.webp' %}" class="img-fluid" alt="">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="quienes-somos" class="section mt-5 mb-5">
+  <div class="container" data-aos="fade-up">
+
+    <h2 class="text-center mb-4">Quiénes Somos</h2>
+
+    <p class="lead text-center mb-5" style="max-width: 800px; margin: 0 auto;">
+      Somos Logística Global LTDA, una empresa dedicada a optimizar y gestionar operaciones críticas
+      relacionadas con vehículos, aeronaves, conductores, pilotos, rutas, cargas y despachos.
+      Nuestro objetivo es ofrecer soluciones eficientes, seguras y adaptadas a las necesidades
+      de cada operación.
+    </p>
+
+    <div class="row text-center">
+
+      <div class="col-md-4 mb-4">
+        <h4>Misión</h4>
+        <p>
+          Brindar un sistema de gestión confiable y moderno que permita administrar operaciones logísticas
+          con precisión, rapidez y seguridad.
+        </p>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h4>Visión</h4>
+        <p>
+          Convertirnos en una plataforma líder en gestión de transporte y logística a nivel nacional,
+          destacando por innovación y eficiencia.
+        </p>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h4>Valores</h4>
+        <p>
+          Compromiso, responsabilidad, innovación, transparencia y excelencia en cada proceso realizado.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="servicios" class="services section mt-5">
+  <div class="container">
+    <div class="row text-center">
+
+      <div class="col-md-3 mb-4">
+        <a href="/vehiculos/" class="btn btn-dark w-100 py-4">Vehículos</a>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <a href="/aeronaves/" class="btn btn-dark w-100 py-4">Aeronaves</a>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <a href="/conductores/" class="btn btn-dark w-100 py-4">Conductores</a>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <a href="/pilotos/" class="btn btn-dark w-100 py-4">Pilotos</a>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <a href="/clientes/" class="btn btn-dark w-100 py-4">Clientes</a>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <a href="/cargas/" class="btn btn-dark w-100 py-4">Cargas</a>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <a href="/rutas/" class="btn btn-dark w-100 py-4">Rutas</a>
+      </div>
+
+      <div class="col-md-3 mb-4">
+        <a href="/despachos/" class="btn btn-dark w-100 py-4">Despachos</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

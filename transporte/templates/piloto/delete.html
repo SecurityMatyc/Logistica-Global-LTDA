@@ -1,0 +1,21 @@
+{% extends "footer_minimal.html" %}
+
+{% load static %}
+
+{% block content %}
+<div style="height: 120px;"></div>
+<div class="container mt-5 text-center" style="max-width: 600px;">
+
+  <h2 class="mb-4">Eliminar Piloto</h2>
+
+  <p>¿Estás seguro que deseas eliminar al piloto <strong>{{ piloto.nombre }}</strong>?</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'pilotos_list' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+
+</div>
+
+{% endblock %}

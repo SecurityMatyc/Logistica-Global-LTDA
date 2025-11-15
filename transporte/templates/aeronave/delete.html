@@ -1,0 +1,20 @@
+{% extends "footer_minimal.html" %}
+
+{% block content %}
+<div style="height: 120px;"></div>
+
+<div class="container mt-5">
+    <h2 class="text-center">Eliminar Aeronave</h2>
+
+    <p class="text-center">
+        ¿Estás seguro de que deseas eliminar la aeronave:
+        <strong>{{ aeronave.tipo }} - {{ aeronave.matricula }}</strong>?
+    </p>
+
+    <form method="POST" class="text-center">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="/aeronaves/" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

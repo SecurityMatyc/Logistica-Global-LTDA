@@ -1,0 +1,64 @@
+{% extends "footer_minimal.html" %}
+
+{% load static %}
+
+{% block content %}
+<div style="height: 120px;"></div>
+<div class="container mt-5">
+
+  <!-- FORMULARIO DE BÚSQUEDA -->
+<form method="GET" class="row mb-4">
+  <div class="col-md-4">
+    <input type="text" name="buscar" class="form-control" placeholder="Buscar por origen o destino..." value="{{ request.GET.buscar }}">
+  </div>
+
+  <div class="col-md-4">
+    <select name="tipo" class="form-select">
+      <option value="">-- Tipo de Transporte --</option>
+      <option value="TERRESTRE" {% if request.GET.tipo == "TERRESTRE" %}selected{% endif %}>Terrestre</option>
+      <option value="AEREA" {% if request.GET.tipo == "AEREA" %}selected{% endif %}>Aérea</option>
+    </select>
+  </div>
+
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+  </div>
+</form>
+
+
+  <div class="text-start mb-3">
+    <a href="{% url 'ruta_create' %}" class="btn btn-primary">Agregar Ruta</a>
+  </div>
+
+  <table class="table table-dark table-striped text-center">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Origen</th>
+        <th>Destino</th>
+        <th>Tipo</th>
+        <th>Distancia (km)</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for r in rutas %}
+      <tr>
+        <td>{{ r.id }}</td>
+        <td>{{ r.origen }}</td>
+        <td>{{ r.destino }}</td>
+        <td>{{ r.get_tipo_transporte_display }}</td>
+        <td>{{ r.distancia_km }}</td>
+
+        <td>
+          <a href="{% url 'ruta_edit' r.id %}" class="btn btn-warning btn-sm">Editar</a>
+          <a href="{% url 'ruta_delete' r.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

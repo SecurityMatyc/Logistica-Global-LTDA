@@ -1,0 +1,17 @@
+{% extends "footer_minimal.html" %}
+
+{% block content %}
+<div style="height: 120px;"></div>
+
+
+<div class="container mt-5 pt-5">
+
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{% url 'aeronaves_list' %}" class="btn btn-secondary">Volver</a>
+  </form>
+</div>
+{% endblock %}

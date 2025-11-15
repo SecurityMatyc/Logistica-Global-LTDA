@@ -1,0 +1,49 @@
+# ---- ENTORNO VIRTUAL ----
+env/
+venv/
+ENV/
+.venv/
+
+# ---- ARCHIVOS DE PYTHON ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+
+# ---- ARCHIVOS DE CONFIGURACIÓN SENSIBLES ----
+*.env
+*.env.local
+*.secret
+*.key
+*.pem
+
+# ---- LOGS ----
+*.log
+*.out
+*.err
+
+# ---- BASE DE DATOS LOCAL (SQLite) ----
+db.sqlite3
+
+# ---- ARCHIVOS DEL EDITOR ----
+.vscode/
+.idea/
+
+# ---- ARCHIVOS DEL SISTEMA ----
+.DS_Store
+Thumbs.db
+
+# ---- COMPILADOS ----
+*.so
+
+# ---- CACHE ----
+.cache/
+*.cache
+
+# ---- COVERAGE / TESTS ----
+htmlcov/
+.coverage
+coverage.xml
+.pytest_cache/

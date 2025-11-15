@@ -1,0 +1,23 @@
+{% extends "footer_minimal.html" %}
+
+{% load static %}
+
+{% block content %}
+<div style="height: 120px;"></div>
+<div class="container mt-5" style="max-width: 600px;">
+
+  <h2 class="mb-4 text-center">{{ titulo }}</h2>
+
+  <form method="POST" class="card p-4 bg-dark text-white">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="text-center mt-3">
+      <button type="submit" class="btn btn-primary">Guardar</button>
+      <a href="{% url 'pilotos_list' %}" class="btn btn-secondary">Volver</a>
+    </div>
+  </form>
+
+</div>
+
+{% endblock %}

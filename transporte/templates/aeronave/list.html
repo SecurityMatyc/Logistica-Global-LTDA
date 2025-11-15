@@ -1,0 +1,42 @@
+{% extends "footer_minimal.html" %}
+
+{% block content %}
+
+<!-- Espacio invisible para separar del header -->
+<div style="height: 120px;"></div>
+
+<div class="container mt-5 pt-5">
+
+    <a href="{% url 'aeronave_create' %}" class="btn btn-primary mb-3">Agregar Aeronave</a>
+
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Matrícula</th>
+        <th>Capacidad (kg)</th>
+        <th>Activo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in aeronaves %}
+      <tr>
+        <td>{{ a.id }}</td>
+        <td>{{ a.tipo }}</td>
+        <td>{{ a.matricula }}</td>
+        <td>{{ a.capacidad_kg }}</td>
+        <td>{{ a.activo|yesno:"Sí,No" }}</td>
+        <td>
+          <a href="{% url 'aeronave_edit' a.id %}" class="btn btn-warning btn-sm">Editar</a>
+          <a href="{% url 'aeronave_delete' a.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}

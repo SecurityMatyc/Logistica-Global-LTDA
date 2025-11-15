@@ -1,0 +1,24 @@
+{% extends "footer_minimal.html" %}
+
+{% load static %}
+
+{% block content %}
+<div style="height: 120px;"></div>
+<div class="container mt-5" style="max-width: 600px;">
+
+  <h2 class="text-center text-danger mb-4">Eliminar Conductor</h2>
+
+  <div class="card p-4 bg-dark text-white">
+    <p><strong>Conductor:</strong> {{ conductor.nombre }}</p>
+    <p>¿Estás seguro que deseas eliminar este registro?</p>
+
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Eliminar</button>
+      <a href="{% url 'conductores_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

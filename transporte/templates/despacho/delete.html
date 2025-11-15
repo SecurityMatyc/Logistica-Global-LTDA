@@ -1,0 +1,19 @@
+{% extends "footer_minimal.html" %}
+
+{% block content %}
+<div style="height: 120px;"></div>
+<div class="container mt-5" style="max-width: 600px;">
+    <h2 class="mb-4 text-center">Eliminar Despacho</h2>
+
+    <div class="card p-4 bg-dark text-white">
+        <p>¿Estás seguro que deseas eliminar el despacho <strong>#{{ despacho.id }}</strong>?</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+            <a href="{% url 'despachos_list' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "footer_minimal.html" %}
+
+{% load static %}
+
+{% block content %}
+<div style="height: 120px;"></div>
+<div class="container mt-5">
+
+
+<form method="GET" class="row mb-4">
+
+  <div class="col-md-4">
+    <input type="text" name="buscar" class="form-control"
+           placeholder="Buscar por descripción..." value="{{ request.GET.buscar }}">
+  </div>
+
+  <div class="col-md-4">
+    <select name="cliente" class="form-select">
+      <option value="">-- Cliente --</option>
+      {% for cli in clientes %}
+        <option value="{{ cli.id }}"
+          {% if request.GET.cliente == cli.id|stringformat:"s" %}selected{% endif %}>
+          {{ cli.nombre }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+  </div>
+
+</form>
+
+
+  <div class="text-start mb-3">
+    <a href="{% url 'carga_create' %}" class="btn btn-primary">Agregar Carga</a>
+  </div>
+
+  <table class="table table-dark table-striped text-center">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Descripción</th>
+        <th>Peso (kg)</th>
+        <th>Valor</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for c in cargas %}
+      <tr>
+        <td>{{ c.id }}</td>
+        <td>{{ c.cliente.nombre }}</td>
+        <td>{{ c.descripcion }}</td>
+        <td>{{ c.peso_kg }}</td>
+        <td>${{ c.valor }}</td>
+        <td>
+          <a href="{% url 'carga_edit' c.id %}" class="btn btn-warning btn-sm">Editar</a>
+          <a href="{% url 'carga_delete' c.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+
+  </table>
+
+</div>
+
+{% endblock %}
